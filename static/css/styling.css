@@ -1,0 +1,243 @@
+/* Base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a9a0e;;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar-left h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+/* Page Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Footer */
+footer.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #eee;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Post card styling */
+.post-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.post-card h3 {
+    margin-top: 0;
+}
+
+.post-actions {
+    text-align: right;
+}
+
+.post-actions a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #2a9a0e;
+    font-weight: bold;
+}
+
+/* Profile card */
+.profile-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    max-width: 400px;
+}
+
+.avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #333;
+}
+
+.entry-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.entry-list li {
+    margin-bottom: 10px;
+}
+
+.entry-list a {
+    text-decoration: none;
+    color: #2a9a0e;
+    font-weight: bold;
+}
+
+.entry-list a:hover {
+    text-decoration: underline;
+}
+
+/* Recipe Detail Page */
+.recipe-detail {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.recipe-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #2a9a0e;
+}
+
+.recipe-main,
+.recipe-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.recipe-instructions {
+    flex: 2;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.recipe-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-image img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.recipe-ingredients {
+    flex: 1;
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.recipe-ingredients h3 {
+    margin-top: 0;
+    color: #2a9a0e;
+}
+
+.recipe-ingredients ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .recipe-main, .recipe-bottom {
+        flex-direction: column;
+    }
+}
+
+/* Recipe List with Thumbnails */
+.recipe_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.recipe-item:last-child {
+    border-bottom: none;
+}
+
+.recipe-info {
+    flex: 1;
+}
+
+.recipe-thumb img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Add Recipe Button */
+.add-recipe-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #2a9a0e;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-recipe-btn:hover {
+    background-color: #22800c;
+}
