@@ -1,1 +1,14 @@
 password.py
+__pycache__/
+*.pyc
+*.log
+*.pot
+*.mo
+*.swp
+.env
+.env.*
+*.sqlite3
+media/
+.DS_Store
+.vscode/
+.idea/
