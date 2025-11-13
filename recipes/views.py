@@ -1,9 +1,11 @@
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from .forms import RecipeForm, ProfileForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Recipe, Profile
+import random
+from django.contrib.auth.decorators import login_required
 
 class RecipeListView(LoginRequiredMixin,ListView):
     model = Recipe
@@ -55,3 +57,22 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset = None):
         # Return the current user's profile only
         return self.request.user.profile
+
+
+DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+
+def recipe_plan(request):
+    recipes = list(Recipe.objects.all())
+
+    if request.method == "POST":
+        reroll_index = int(request.POST.get("reroll_index"))
+        request.session.setdefault("recipe_plan", [None]*7)
+        if recipes:
+            request.session["recipe_plan"][reroll_index] = random.choice(recipes).id
+        return redirect("recipes:recipe_plan")
+
+    ids = request.session.get("recipe_plan", [None]*7)
+    plan = [Recipe.objects.filter(id=i).first() if i else None for i in ids]
+
+    context = {"days": zip(DAYS, plan)}
+    return render(request, "recipes/recipe_plan.html", context)

@@ -1,11 +1,9 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 {% block body %}
 <h2>Your Recipes</h2>
-
 <p>
   <a href="{% url 'recipes:recipe_create' %}" class="btn add-recipe-btn">Add Recipe</a>
 </p>
-
 <ul class="recipe_list">
   {% for recipe in recipes %}
     <li class="recipe-item">
@@ -15,7 +13,6 @@
           {{ recipe.title }}
         </a>
       </div>
-
       {% if recipe.image %}
       <div class="recipe-thumb">
         <a href="{% url 'recipes:recipe_detail' recipe.pk %}">

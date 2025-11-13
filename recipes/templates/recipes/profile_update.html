@@ -1,18 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
   <h2>Update your profile</h2>
-
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-
     {% if form.instance.avatar %}
       <p>Current Avatar:</p>
       <img src="{{ form.instance.avatar.url }}" alt="Avatar" style="max-width: 200px;">
     {% endif %}
-
     <button type="submit">Save changes</button>
   </form>
-
   <a href="{% url 'recipes:recipe_list' %}">Back to Recipes</a>
 {% endblock %}

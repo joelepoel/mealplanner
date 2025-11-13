@@ -1,12 +1,7 @@
 {% extends 'layout.html' %}
-
 {% block body %}
 <div class="container recipe-detail">
-
-    <!-- Recipe Title -->
     <h1 class="recipe-title">{{ object.title }}</h1>
-
-    <!-- Instructions + Image -->
     <div class="recipe-main">
         {% if object.instructions %}
         <div class="recipe-instructions">
@@ -14,15 +9,12 @@
             <p>{{ object.instructions }}</p>
         </div>
         {% endif %}
-
         {% if object.image %}
         <div class="recipe-image">
             <img src="{{ object.image.url }}" alt="{{ object.title }}">
         </div>
         {% endif %}
     </div>
-
-    <!-- Ingredients -->
     {% if object.ingredients %}
     <div class="recipe-bottom">
         <div class="recipe-ingredients">
@@ -31,8 +23,6 @@
         </div>
     </div>
     {% endif %}
-
-    <!-- Action Links -->
     <div class="recipe-actions" style="margin-top: 20px;">
         <a href="{% url 'recipes:recipe_update' object.pk %}">edit</a> |
         <a href="{% url 'recipes:recipe_confirm_delete' object.pk %}">delete</a> |

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h2>Weekly Meal Plan</h2>
+
+<div class="week-grid">
+  {% for day, recipe in days %}
+    <div class="recipe-card">
+      <h3>{{ day }}</h3>
+
+      {% if recipe %}
+        {% if recipe.image %}
+          <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image">
+        {% else %}
+          <div class="recipe-image-placeholder"></div>
+        {% endif %}
+        <h4>{{ recipe.title }}</h4>
+      {% else %}
+        <div class="recipe-image-placeholder"></div>
+        <h4 class="placeholder-title">Empty slot</h4>
+      {% endif %}
+
+      <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="reroll_index" value="{{ forloop.counter0 }}">
+        <button type="submit" class="reroll-btn">Reroll</button>
+      </form>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

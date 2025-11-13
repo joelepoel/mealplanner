@@ -21,6 +21,7 @@
                 </a>
                     <a href="{% url 'accounts:account_details' %}" class="nav-link">User Settings</a>
                     <a href="{% url 'recipes:profile_update' %}" class="nav-link">Profile Settings</a>
+                    <a href="{% url 'recipes:recipe_plan' %}" class="nav-link">Meal planner</a>
                     <form method="post" action="{% url 'accounts:logout' %}">
                         {% csrf_token %}
                         <button type="submit">Logout</button>

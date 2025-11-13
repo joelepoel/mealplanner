@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2a9a0e;;
+    background-color: #2a9a0e;
     color: white;
     padding: 10px 20px;
 }
@@ -240,4 +240,61 @@ footer.footer {
 
 .add-recipe-btn:hover {
     background-color: #22800c;
+}
+
+/* Weekly Meal Plan */
+.week-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; /* allow wrapping on very small screens */
+}
+
+.recipe-card {
+  flex: 1 1 calc(14% - 1rem); /* ~7 cards per row */
+  max-width: 140px;
+  min-width: 100px; /* prevents cards from shrinking too much */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 220px; /* consistent height */
+  box-sizing: border-box;
+}
+
+.recipe-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe-image-placeholder {
+  width: 100%;
+  height: 100px;
+  background: #f2f2f2;
+  border-radius: 8px;
+}
+
+.placeholder-title {
+  color: #aaa;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+button {
+  margin-top: auto; /* pushes button to bottom of card */
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
 }

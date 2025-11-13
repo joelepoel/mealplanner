@@ -17,7 +17,7 @@ class Profile(models.Model):
             img = img.convert("RGB")
             img.thumbnail((50, 50))
             img.save(self.avatar.path)
-            
+
     def __str__(self): #If portrayed in a string, it returns the users username, followed by: 's profile
         return f"{self.user.username}'s profile"
     
@@ -26,7 +26,7 @@ class Recipe(models.Model):
                                 on_delete=models.CASCADE, 
                                 related_name='recipe')
     image = models.ImageField(upload_to='media/recipes/')
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=40)
     instructions = models.TextField(null=True, blank=True)
     ingredients = models.TextField(null=True, blank=True)
     date_added = models.DateField(auto_now_add=True)
@@ -36,3 +36,5 @@ class Recipe(models.Model):
     
     class Meta:
         ordering = ['-date_added'] #Orders the dates backwards, so new recipes with newer dates are added on top
+
+    
